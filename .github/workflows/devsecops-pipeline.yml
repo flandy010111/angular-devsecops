@@ -125,7 +125,7 @@ jobs:
 
       - name: "📤 Upload SARIF → GitHub Security"
         if: always()
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: semgrep-results.sarif
           category: sast-semgrep
@@ -234,7 +234,7 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: "🔎 Trivy — Scanare imagine Docker (tabel)"
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@0.31.0
         with:
           image-ref: "${{ env.DOCKER_IMAGE }}:scan-target"
           format: table
@@ -242,7 +242,7 @@ jobs:
           exit-code: "0"
 
       - name: "📄 Trivy — Raport SARIF imagine"
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@0.31.0
         with:
           image-ref: "${{ env.DOCKER_IMAGE }}:scan-target"
           format: sarif
@@ -251,7 +251,7 @@ jobs:
 
       - name: "📤 Upload SARIF → GitHub Security"
         if: always()
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: trivy-docker.sarif
           category: docker-trivy
