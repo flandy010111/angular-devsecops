@@ -162,7 +162,7 @@ jobs:
 
       # ── Trivy pe filesystem (package-lock.json) ──
       - name: "🔎 Trivy — Scanare package-lock.json"
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@0.31.0
         with:
           scan-type: fs
           scan-ref: "."
@@ -171,7 +171,7 @@ jobs:
           exit-code: "0"
 
       - name: "📄 Trivy — Raport SARIF dependente"
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@0.31.0
         with:
           scan-type: fs
           scan-ref: "."
@@ -181,7 +181,7 @@ jobs:
 
       - name: "📤 Upload SARIF → GitHub Security"
         if: always()
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: trivy-deps.sarif
           category: sca-trivy
