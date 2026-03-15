@@ -1,0 +1,10 @@
+title = "Configurare Gitleaks — Angular DevSecOps"
+
+[allowlist]
+  description = "Exceptii pentru fisierele de test si configurare"
+  paths = [
+    '''(.*?)\.spec\.ts''',
+    '''(.*?)test(.*?)''',
+    '''\.gitleaks\.toml''',
+    '''karma\.conf\.js''',
+  ]

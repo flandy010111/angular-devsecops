@@ -1,0 +1,24 @@
+# ============================================================================
+#  Render Blueprint — Infrastructure as Code
+#  ─────────────────────────────────────────
+#  Acest fisier defineste serviciul pe Render.
+#  Render il detecteaza automat si ofera deploy cu un click.
+#  Docs: https://docs.render.com/infrastructure-as-code
+# ============================================================================
+
+services:
+  - type: web
+    name: student-portal-angular
+    runtime: docker
+    # Render va folosi Dockerfile-ul din radacina proiectului
+    dockerfilePath: ./Dockerfile
+    # Branch-ul monitorizat pentru auto-deploy
+    branch: main
+    # Plan gratuit
+    plan: free
+    # Health check endpoint
+    healthCheckPath: /
+    # Variabile de mediu (optional)
+    envVars:
+      - key: NODE_ENV
+        value: production
