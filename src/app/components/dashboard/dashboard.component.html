@@ -1,0 +1,68 @@
+<div class="dashboard">
+  <h2>📊 Dashboard</h2>
+
+  <div class="stats-grid" *ngIf="stats">
+    <div class="stat-card">
+      <span class="stat-value">{{ stats.totalStudents }}</span>
+      <span class="stat-label">Studenti inregistrati</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value">{{ stats.totalGrades }}</span>
+      <span class="stat-label">Note inregistrate</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value">{{ stats.averageGrade | number:'1.2-2' }}</span>
+      <span class="stat-label">Media generala</span>
+    </div>
+  </div>
+
+  <div class="info-section" *ngIf="stats">
+    <h3>🔒 Pipeline DevSecOps</h3>
+    <div class="pipeline-info">
+      <div class="pipeline-step">
+        <span class="step-icon">🧪</span>
+        <div>
+          <strong>Quality Gate</strong>
+          <p>ESLint + Karma + ng build</p>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <span class="step-icon">🛡️</span>
+        <div>
+          <strong>SAST — Semgrep</strong>
+          <p>Scanare cod TypeScript/Angular</p>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <span class="step-icon">📦</span>
+        <div>
+          <strong>SCA — Trivy + npm audit</strong>
+          <p>Scanare dependente npm</p>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <span class="step-icon">🔑</span>
+        <div>
+          <strong>Secrets — Gitleaks</strong>
+          <p>Detectare credentiale in Git</p>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <span class="step-icon">🐳</span>
+        <div>
+          <strong>Docker — Trivy</strong>
+          <p>Scanare imagine nginx</p>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <span class="step-icon">☁️</span>
+        <div>
+          <strong>Deploy — Render</strong>
+          <p>Deploy automat daca totul trece</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p *ngIf="error" class="error">{{ error }}</p>
+</div>
