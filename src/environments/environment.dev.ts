@@ -1,14 +1,21 @@
-// ⚠️ VULN: Credentiale hardcodate — Gitleaks va detecta acestea
+// ⚠️ VULN: Private key hardcodat — Gitleaks va detecta asta
 export const environment = {
   production: false,
   apiUrl: "http://localhost:5000/api",
-
-  // GitHub Personal Access Token (fake)
-  GITHUB_TOKEN: "ghp_R4nd0mT0k3nV4lu3F0rD3m0Purp0s3sOnly1",
-
-  // Generic API secret
-  API_SECRET: "password123_super_secret_key_do_not_share",
-
-  // Database connection string cu parola
-  DB_PASSWORD: "mongodb+srv://admin:P4ssw0rd123@cluster0.example.net/students",
 };
+
+// Private RSA key (fake - doar pentru demo Gitleaks)
+const PRIVATE_KEY = `-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEA2a2rwplBQLFsTb3JxWJFNDeK0YUZ2KGMEbTUaHIBnEJDBmFB
+pValYqEBTEFSjGHNaGcqL4kOE1YM9ZBmGCIiRdRMqxJbGDnAB6FkIFSiwnRKFJGa
+jD7GwMBVGNVHBPYGxqMgDmEBnFgNCsRkSYmL9TnEPDoJ9yGBiHBCQMPBaOFDHGN0
+M3k2nDDb9d0bGP3RRx6B8EkjgDxT6kCV7GAKMvrCHPMIGBeLgJduU6NbS4IFLBWN
+Ig4OTqcGHlhCKyCOjBJJAh3Rg0EZw0GSNJOFoGMPaysc5Z3L0XJfkjbCbELCLeGn
+mDpPMPBGO20FnmMHZOmjOkEGCCFRaGSFyhdVHQIDAQABAoIBAEZcy0A1N5C8aXT4H
+NQhWCyj2hgJD0ch3VjOcFEGP3PjGN2MiMaLnBK5MqFaCfMzEHaoCWlJDaBFYbFU2
+n8WsHuvAQbBEY1SIHKDM0hLPFBCJLEjckvNd1xG2QUVH5HjHCzOXMWHMZ0LbE8c1
+QDaBk3XMjG7V9sMP2HCMHlP2jlE4TxPOdBE5MG1MkPFqHGKmXfaQhnNJMPBMfBE3
+EZawruaZ0VOOQ5UTDgS7MGSB5GFqHMFIrOSC7APn0CVMFCPQdONWXvGCjBkp3Gak
+3vJCGC4PDXFE89aJnAc4bE8aGaFjEANkGFBCc6JvaEjDRFpGIBo0BDuBFBcLRBE3
+HBc4hGECgYEA7kIFhGLBMaFM5XDnPDCjV5CbGJJpKhITzaNP3FVwBHGCQcz3DaJH
+-----END RSA PRIVATE KEY-----`;
