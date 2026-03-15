@@ -47,7 +47,9 @@ jobs:
           cache: npm
 
       - name: "📦 npm install"
-        run: npm install
+        run: |
+          rm -f package-lock.json
+          npm install
 
   # ══════════════════════════════════════════════════════════════════════════
   #  ETAPA 2 — Calitate Cod (Lint + Teste + Build)
@@ -64,7 +66,9 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: "📦 Instalare dependente"
-        run: npm install
+        run: |
+          rm -f package-lock.json
+          npm install
 
       - name: "🔍 ESLint — Linting TypeScript + Reguli securitate"
         run: npx ng lint --format json --output-file eslint-results.json
