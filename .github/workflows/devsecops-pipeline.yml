@@ -75,6 +75,9 @@ jobs:
           path: node_modules
           key: nm-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
+      - name: "📦 npm install (completare dependente native)"
+        run: npm install
+
       - name: "🔍 ESLint — Linting TypeScript + Reguli securitate"
         run: npx ng lint --format json --output-file eslint-results.json
         continue-on-error: true
