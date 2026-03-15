@@ -162,22 +162,10 @@ jobs:
 
       # ── Trivy pe filesystem (package-lock.json) ──
       - name: "🔎 Trivy — Scanare package-lock.json"
-        uses: aquasecurity/trivy-action@0.31.0
-        with:
-          scan-type: fs
-          scan-ref: "."
-          format: table
-          severity: "CRITICAL,HIGH,MEDIUM"
-          exit-code: "0"
-
-      - name: "📄 Trivy — Raport SARIF dependente"
-        uses: aquasecurity/trivy-action@0.31.0
-        with:
-          scan-type: fs
-          scan-ref: "."
-          format: sarif
-          output: trivy-deps.sarif
-          severity: "CRITICAL,HIGH,MEDIUM"
+        run: |
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
+          trivy fs --severity CRITICAL,HIGH,MEDIUM --format table .
+          trivy fs --severity CRITICAL,HIGH,MEDIUM --format sarif --output trivy-deps.sarif . || true
 
       - name: "📤 Upload SARIF → GitHub Security"
         if: always()
