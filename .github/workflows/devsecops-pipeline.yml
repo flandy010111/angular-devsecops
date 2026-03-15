@@ -46,8 +46,8 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
 
-      - name: "📦 npm ci (instalare determinista)"
-        run: npm ci
+      - name: "📦 npm install"
+        run: npm install
 
       - name: "💾 Cache node_modules"
         uses: actions/cache/save@v4
