@@ -222,7 +222,6 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: "🔎 Trivy — Scanare imagine Docker (tabel)"
-        - name: "🔎 Trivy — Scanare imagine Docker"
         run: |
           curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
           trivy image --severity CRITICAL,HIGH --format table "${{ env.DOCKER_IMAGE }}:scan-target"
