@@ -49,12 +49,6 @@ jobs:
       - name: "📦 npm install"
         run: npm install
 
-      - name: "💾 Cache node_modules"
-        uses: actions/cache/save@v4
-        with:
-          path: node_modules
-          key: nm-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-
   # ══════════════════════════════════════════════════════════════════════════
   #  ETAPA 2 — Calitate Cod (Lint + Teste + Build)
   # ══════════════════════════════════════════════════════════════════════════
@@ -69,13 +63,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: "♻️ Restaurare cache node_modules"
-        uses: actions/cache/restore@v4
-        with:
-          path: node_modules
-          key: nm-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-
-      - name: "📦 npm install (completare dependente native)"
+      - name: "📦 Instalare dependente"
         run: npm install
 
       - name: "🔍 ESLint — Linting TypeScript + Reguli securitate"
